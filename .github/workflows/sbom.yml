@@ -20,7 +20,7 @@ jobs:
         run: npm install
 
       - name: Generate CycloneDX SBOM
-        run: npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom.xml
+        run: npx @cyclonedx/cyclonedx-npm --output-format json --output-file sbom.json
 
       - name: upload
         run: "curl -X POST -H 'X-Api-Key: odt_j5TEn8Qe_oPIpMDxzR8kXFsI6s8GJt8vQtixB4NIY' -F 'project=7c2d43ef-0e35-480c-864e-337cfe1fffa7' -F 'bom=@sbom.json' https://dependency.portasecura.com/api/v1/bom"
