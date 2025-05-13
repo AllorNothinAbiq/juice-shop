@@ -1,4 +1,4 @@
-name: Generate SBOM
+name: Generate CycloneDX SBOM
 
 on:
   push:
@@ -21,6 +21,4 @@ jobs:
         run: npm ci
 
       - name: Generate CycloneDX SBOM
-        uses: CycloneDX/gh-node-module-sbom-action@v2
-        with:
-          output: 'bom.xml'
+        run: npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom.xml
